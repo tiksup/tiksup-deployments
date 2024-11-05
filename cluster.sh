@@ -32,3 +32,5 @@ kubectl apply -f configmap-secret.yml
 
 kubectl get configmaps
 kubectl get secrets
+
+kubectl apply -f k8s/deployments/
