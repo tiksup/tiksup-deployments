@@ -1,4 +1,4 @@
- # Primera parte del script
+#!/bin/bash
 
   # Add Docker's official GPG key:
   sudo apt-get update
