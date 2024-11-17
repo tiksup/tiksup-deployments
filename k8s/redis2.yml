@@ -13,20 +13,30 @@ spec:
         app: redis2
     spec:
       containers:
-      - name: redis2
-        image: redis:7.4.0-alpine
-        ports:
-          - containerPort: 6379
+        - name: redis2
+          image: redis:alpine
+          ports:
+            - containerPort: 6379
+          env:
+            - name: REDIS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: REDIS_HOST
+            - name: REDIS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: REDIS_PORT
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: redis2
 spec:
+  type: ClusterIP
+  ports:
+    - port: 6379
+      targetPort: 6379
   selector:
     app: redis2
-  ports:
-    - protocol: TCP
-      port: 6379
-      targetPort: 6379
-  type: ClusterIP
