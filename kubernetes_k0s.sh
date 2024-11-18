@@ -10,9 +10,9 @@ echo 'source <(kubectl completion bash)' >>~/.bashrc
 
 wget https://github.com/k0sproject/k0sctl/releases/download/v0.19.4/k0sctl-linux-amd64
 
-mv k0sctl-linux-amd65 k0sctl
+mv k0sctl-linux-amd64 k0sctl
 
-chmod +x k0sctl
+sudo chmod +x k0sctl
 
 sudo mv k0sctl /bin
 
